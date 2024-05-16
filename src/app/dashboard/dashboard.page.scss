@@ -1,0 +1,25 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.herotag>h1{
+    position: relative;
+    bottom: 50px;
+    font-weight: bold;
+    color: rgb(251, 248, 248);
+}
+.features>a{
+    text-decoration: none;
+    color: rgb(5, 5, 58);
+}
+.features>a:hover{
+    text-shadow: 2px 2px 4px black;
+    color: rgb(7, 7, 130);
+    font-weight: bold;
+}
+.logo{
+    width: 60px;
+    height: 40px;
+}

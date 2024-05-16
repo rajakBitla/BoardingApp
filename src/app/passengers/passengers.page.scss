@@ -1,0 +1,40 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family:"nan";
+}  
+.card_shadow{
+    margin: 20px 10px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    background-color: rgb(7, 7, 130); 
+    color: white;
+}
+
+.card_shadow:hover{
+    box-shadow: 2px 5px 3px grey;
+}
+.card_shadow>ion-col>h4{
+    font-size: medium;
+    font-weight: bold;
+font-family: Arial, Helvetica, sans-serif;
+}
+.card_shadow>ion-col>ion-button{
+    margin: 10px 5px ;
+}
+.PassengerTitle{
+    font-weight: bold;
+}
+.back>span{
+    background-color: rgb(226, 220, 220);
+    width: fit-content;
+    border-radius: 100%;
+    padding: 5px;
+    color: black;
+}
+.PassengerTitle>span{
+    position: absolute;
+    right: 10px;
+}

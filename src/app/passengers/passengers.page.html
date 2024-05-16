@@ -1,0 +1,105 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+<ion-row class="back">
+  <span>&larr;</span>
+  <ion-title class="PassengerTitle">Passengers<span>&plus;Add Passenger</span> </ion-title>
+</ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<ion-row class="card_shadow">
+  <ion-col size="12">
+    <h4>Raja kumar (22)</h4>
+    <h4>Gender : Male</h4>
+    <h4>Date : 15/05/2024</h4>
+  </ion-col>
+  <ion-col size="12" >
+    <ion-button  color="warning" (click)="setOpen(true)"  >Show QR</ion-button>
+    <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+
+        <ion-content class="ion-padding">
+         <img width="570" height="500" src="https://www.investopedia.com/thmb/hJrIBjjMBGfx0oa_bHAgZ9AWyn0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/qr-code-bc94057f452f4806af70fd34540f72ad.png" alt="">
+        </ion-content>
+        <ion-button class="ion-padding" color="warning" (click)="setOpen(false)">Close</ion-button>
+
+      </ng-template>
+    </ion-modal>
+    <ion-button color="warning">Edit</ion-button>
+    <ion-button  color="warning">Delete</ion-button>
+
+  </ion-col>
+</ion-row>
+<ion-row class="card_shadow">
+  <ion-col size="12">
+    <h4>Sukhit kumar (23)</h4>
+    <h4>Gender : Male</h4>
+    <h4>Date : 15/05/2024</h4>
+  </ion-col>
+  <ion-col size="12" >
+    <ion-button  color="warning" (click)="setOpen(true)"  >Show QR</ion-button>
+    <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+
+        <ion-content class="ion-padding">
+         <img width="550" height="500" src="https://www.investopedia.com/thmb/hJrIBjjMBGfx0oa_bHAgZ9AWyn0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/qr-code-bc94057f452f4806af70fd34540f72ad.png" alt="">
+        </ion-content>
+        <ion-button class="ion-padding" color="warning" (click)="setOpen(false)">Close</ion-button>
+
+      </ng-template>
+    </ion-modal>
+    <ion-button  color="warning">Edit</ion-button>
+    <ion-button  color="warning">Delete</ion-button>
+
+  </ion-col>
+</ion-row >
+<ion-row class="card_shadow">
+  <ion-col class="data" size="12">
+    <h4>Shashi kumar (21)</h4>
+    <h4>Gender : Male</h4>
+    <h4>Date : 15/05/2024</h4>
+  </ion-col>
+  <ion-col size="12" >
+    <ion-button  color="warning"  color="warning" (click)="setOpen(true)" >Show QR</ion-button>
+    <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+
+        <ion-content class="ion-padding">
+         <img width="550" height="500" src="https://www.investopedia.com/thmb/hJrIBjjMBGfx0oa_bHAgZ9AWyn0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/qr-code-bc94057f452f4806af70fd34540f72ad.png" alt="">
+        </ion-content>
+        <ion-button class="ion-padding" color="warning" (click)="setOpen(false)">Close</ion-button>
+
+      </ng-template>
+    </ion-modal>
+  
+    <ion-button  color="warning">Edit</ion-button>
+    <ion-button  color="warning">Delete</ion-button>
+
+  </ion-col>
+</ion-row >
+<ion-row class="card_shadow">
+  <ion-col size="12">
+    <h4>Rajesh kumar (20)</h4>
+    <h4>Gender : Male</h4>
+    <h4>Date : 15/05/2024</h4>
+  </ion-col>
+  <ion-col size="12" >
+    <ion-button  color="warning" (click)="setOpen(true)"  >Show QR</ion-button>
+    <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+
+        <ion-content class="ion-padding">
+         <img width="550" height="500" src="https://www.investopedia.com/thmb/hJrIBjjMBGfx0oa_bHAgZ9AWyn0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/qr-code-bc94057f452f4806af70fd34540f72ad.png" alt="">
+        </ion-content>
+        <ion-button class="ion-padding" color="warning" (click)="setOpen(false)">Close</ion-button>
+
+      </ng-template>
+    </ion-modal>
+    <ion-button color="warning">Edit</ion-button>
+    <ion-button  color="warning">Delete</ion-button>
+
+  </ion-col>
+</ion-row>
+
+</ion-content>

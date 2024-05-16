@@ -1,0 +1,29 @@
+<ion-header class="head" [translucent]="true">
+  <ion-toolbar  >
+   <ion-row class="back">
+    <span>&larr;</span>
+    <ion-title>Add Passenger</ion-title>
+   </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+    <ion-item>
+      <ion-input label="Name" type="text" labelPlacement="floating" fill="outline" color="warning" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Age" min="0" type="number" labelPlacement="floating" fill="outline" color="warning" ></ion-input>
+    </ion-item>
+    <ion-item fill="outline" class="gender"  >
+      <label>Gender </label>
+      <label class="gen" >Male</label>
+      <input  type="radio" name="gen" color="warning" />
+      <label class="gen">Female</label>
+      <input  type="radio" name="gen"  color="warning" />
+    </ion-item>
+    <ion-item>
+      <ion-input label="Date" type="date" labelPlacement="floating" fill="outline" color="warning" ></ion-input>
+    </ion-item>
+<ion-button (click)="presentToast('top')" expand="block" color="warning" fill="solid" >Submit</ion-button>
+</ion-content>
