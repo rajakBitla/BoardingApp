@@ -4,6 +4,7 @@ import { PassengersPage } from './passengers/passengers.page';
 import { DashboardPage } from './dashboard/dashboard.page';
 import { BoardPassengerPage } from './board-passenger/board-passenger.page';
 import { AddPassengerPage } from './add-passenger/add-passenger.page';
+import { FormControlPage } from './form-control/form-control.page';
 
 const routes: Routes = [
   {
@@ -12,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'filter-list',
     pathMatch: 'full'
   },
   {
@@ -34,6 +35,15 @@ const routes: Routes = [
     path: 'board-passenger',
     component:BoardPassengerPage
     // loadChildren: () => import('./board-passenger/board-passenger.module').then( m => m.BoardPassengerPageModule)
+  },
+  {
+    path: 'form-control',
+    component:FormControlPage
+    // loadChildren: () => import('./form-control/form-control.module').then( m => m.FormControlPageModule)
+  },
+  {
+    path: 'filter-list',
+    loadChildren: () => import('./filter-list/filter-list.module').then( m => m.FilterListPageModule)
   },
 ];
 

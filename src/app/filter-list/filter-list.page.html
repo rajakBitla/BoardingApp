@@ -1,0 +1,95 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="title"><span>&larr; {{allData[0].origin}}-{{allData[0].destination}} </span>
+    </ion-title>
+  <img slot="end" (click)="setOpen(true)" class="logo" src="https://static.vecteezy.com/system/resources/previews/005/988/959/non_2x/calendar-icon-free-vector.jpg" alt="">
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section>
+    <div>
+
+      <a href="" (click)="sleeper()" >
+        <img src="https://www.morningstartravels.in/m/assets/icon/sleeper.png" alt="">
+      </a>
+    </div>
+    <div>
+
+<a href="">
+  <img src="https://www.morningstartravels.in/m/assets/icon/seater.png" alt="">
+</a>
+    </div>
+    <div>
+
+<a href=""  >
+  <img src="https://www.morningstartravels.in/m/assets/icon/ac.png" alt="">
+</a>
+    </div>
+    <div>
+
+<a href="">
+  <img src="https://www.morningstartravels.in/m/assets/icon/nonAc.png" alt="">
+</a>
+    </div>
+    <div>
+    <a href="">filter</a>
+    </div>
+
+  </section>
+  <div class="bsr bar-footer bar-positive">
+    <button class="button icon ion-home" ></button>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-list *ngFor="let data of allData">
+          <div class="main">
+            <ion-row class="arrange">
+              <ion-col size="9">
+                <p>{{data.dep_time}}-{{data.arr_time}} </p>
+                <p class="para"> duration {{data.duration}} | {{data.available_seats}} seats left</p>
+              </ion-col>
+              <ion-col class="price" size="3">
+                <p> {{data.discount_percentage}}%off</p>
+                <p>&#8377; {{data.discounted_price}}</p>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="12">
+                <img class="image" src="https://www.morningstartravels.in/m/assets/icon/bus.png" alt=""> {{data.number}}
+                <br>
+                {{data.bus_type}}
+              </ion-col>
+            </ion-row>
+          </div>
+
+        </ion-list>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Date & time</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-datetime></ion-datetime>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>
+
+
+
+
+

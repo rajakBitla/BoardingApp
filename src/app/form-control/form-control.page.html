@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Form Control</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="ionicForm1" (ngSubmit)="submitSampleForm()">
+    <ion-item class="item-field">
+      <ion-label class='txt-lbl input-lbl' position="floating">Name</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+      <ion-label class='txt-lbl input-lbl' position="floating">Age</ion-label>
+
+      <ion-input type="number" formControlName="age"></ion-input>
+      <ion-label class='txt-lbl input-lbl' position="floating">Email</ion-label>
+
+      <ion-input type="email" formControlName="email"></ion-input>
+
+      <ion-label class='txt-lbl input-lbl' position="floating">Password</ion-label>
+      <ion-input type="Password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-button type="submit">Submit</ion-button>
+
+  </form>
+  <ion-button (click)="clickMe()">Call Api</ion-button>
+  <hr>
+  <ion-item *ngFor="let data of allData">
+    <ion-item>
+      <ion-row>
+        <ion-col size="4"><img src={{data.avatar}} alt=""></ion-col>
+        <ion-col size="8">
+          {{data.first_name}}
+          {{data.last_name}} {{data.email}}
+        </ion-col>
+
+      </ion-row>
+
+    </ion-item>
+  </ion-item>
+
+</ion-content>
