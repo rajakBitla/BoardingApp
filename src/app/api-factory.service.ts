@@ -16,4 +16,7 @@ export class ApiFactoryService {
   FilterDataUrl(): Observable<any> {
     return this.http.get('https://www.morningstartravels.in/api/available_routes/2/3/2024-05-25.json?show_only_available_services=false&show_injourney_services=true&device_id=');
   }
+  getAllOriginsDestination(){
+    return this.http.get('https://www.morningstartravels.in/api/destination_pairs.json?response_format=true&app_bima_enabled=false&device_id=')
+  }
 }

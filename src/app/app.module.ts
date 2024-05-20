@@ -12,8 +12,9 @@ import { BoardPassengerPage } from './board-passenger/board-passenger.page';
 import { AddPassengerPage } from './add-passenger/add-passenger.page';
 import { FormControlPage } from './form-control/form-control.page';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchbusesPage } from './searchbuses/searchbuses.page';
 @NgModule({
-  declarations: [AppComponent,PassengersPage,DashboardPage,BoardPassengerPage,AddPassengerPage,FormControlPage],
+  declarations: [AppComponent,PassengersPage,DashboardPage,BoardPassengerPage,AddPassengerPage,FormControlPage,SearchbusesPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,QRCodeModule,ReactiveFormsModule,HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

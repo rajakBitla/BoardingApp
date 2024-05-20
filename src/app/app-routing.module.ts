@@ -5,6 +5,7 @@ import { DashboardPage } from './dashboard/dashboard.page';
 import { BoardPassengerPage } from './board-passenger/board-passenger.page';
 import { AddPassengerPage } from './add-passenger/add-passenger.page';
 import { FormControlPage } from './form-control/form-control.page';
+import { SearchbusesPage } from './searchbuses/searchbuses.page';
 
 const routes: Routes = [
   {
@@ -13,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'filter-list',
+    redirectTo: 'searchbuses',
     pathMatch: 'full'
   },
   {
@@ -44,6 +45,11 @@ const routes: Routes = [
   {
     path: 'filter-list',
     loadChildren: () => import('./filter-list/filter-list.module').then( m => m.FilterListPageModule)
+  },
+  {
+    path: 'searchbuses',
+    component:SearchbusesPage
+    // loadChildren: () => import('./searchbuses/searchbuses.module').then( m => m.SearchbusesPageModule)
   },
 ];
 
