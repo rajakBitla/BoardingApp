@@ -2,59 +2,61 @@
   <ion-toolbar>
     <ion-title class="title"><span>&larr; {{allData[0].origin}}-{{allData[0].destination}} </span>
     </ion-title>
-  <img slot="end" (click)="setOpen(true)" class="logo" src="https://static.vecteezy.com/system/resources/previews/005/988/959/non_2x/calendar-icon-free-vector.jpg" alt="">
+    <img slot="end" (click)="setOpen(true)" class="logo"
+      src="https://static.vecteezy.com/system/resources/previews/005/988/959/non_2x/calendar-icon-free-vector.jpg"
+      alt="">
   </ion-toolbar>
 
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <section>
-      <ion-col (click)="filter('Sleeper')" >
-        <img src="https://www.morningstartravels.in/m/assets/icon/sleeper.png" alt="">
-      </ion-col>
-<ion-col (click)="filter('Seater')">
-  <img src="https://www.morningstartravels.in/m/assets/icon/seater.png" alt="">
-</ion-col>
-<ion-col (click)="filter('AC')" >
-  <img src="https://www.morningstartravels.in/m/assets/icon/ac.png" alt="">
-</ion-col>
-  
-<ion-col (click)="filter('Non-Ac')" >
-  <img src="https://www.morningstartravels.in/m/assets/icon/nonAc.png" alt="">
-</ion-col>
-  <ion-col (click)="filter('filter')" >filter</ion-col>
-  
+  <ion-grid>
 
-  </section>
-  <div class="bsr bar-footer bar-positive">
-    <button class="button icon ion-home" ></button>
-  </div>
+    <ion-row class="fit">
+      <ion-text (click)="filter('Sleeper')" class="filter" id="sleeperTag">Sleeper</ion-text>
+      <ion-text (click)="filter('Seater')" class="filter" id="seaterTag" >Seater</ion-text>
+      <ion-text (click)="filter('AC')" class="filter" id="acTag" >AC</ion-text>
+      <ion-text (click)="filter('Non-Ac')" class="filter" id="nonAcTag">Non-Ac</ion-text>
+      <ion-select placeholder="Filter" [multiple]="true" (ionChange)="changeOption($event)">
+        <ion-select-option value="Sleeper">Sleeper</ion-select-option>
+        <ion-select-option value="Seater">Seater</ion-select-option>
+        <ion-select-option value="AC">AC</ion-select-option>
+        <ion-select-option value="Non-Ac">Non-AC</ion-select-option>
+      </ion-select>
+    </ion-row>
+
+  </ion-grid>
+  <!-- <div class="bsr bar-footer bar-positive">
+    <button class="button icon ion-home"></button>
+  </div> -->
   <ion-grid>
     <ion-row>
       <ion-col size="12">
         <ion-list *ngFor="let data of tempData">
           <div class="main">
-            <ion-row class="arrange">
+            <ion-row class="arrange pad">
               <ion-col size="9">
                 <p>{{data.dep_time}}-{{data.arr_time}} </p>
                 <p class="para"> duration {{data.duration}} | {{data.available_seats}} seats left</p>
               </ion-col>
               <ion-col class="price" size="3">
-                <p> {{data.discount_percentage}}%off</p>
-                <p>&#8377; {{data.discounted_price}}</p>
+                <p> {{data.discount_percentage}} % off</p>
+                <p class="big">&#8377; {{data.discounted_price}}</p>
               </ion-col>
             </ion-row>
-            <ion-row>
+            <ion-row class="pad">
               <ion-col size="12">
                 <img class="image" src="https://www.morningstartravels.in/m/assets/icon/bus.png" alt=""> {{data.number}}
                 <br>
                 {{data.bus_type}}
               </ion-col>
+             
             </ion-row>
           </div>
         </ion-list>
       </ion-col>
     </ion-row>
+    <ion-text *ngIf="noBus" class="ion-margin ion-padding">No buses found</ion-text>
   </ion-grid>
   <ion-modal [isOpen]="isModalOpen">
     <ng-template>
@@ -71,10 +73,7 @@
       </ion-content>
     </ng-template>
   </ion-modal>
-
+  <!-- <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
 </ion-content>
-
-
-
-
-

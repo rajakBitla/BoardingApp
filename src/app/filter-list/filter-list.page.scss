@@ -35,6 +35,10 @@ section {
     height: 35px;
 }
 
+section.active {
+    border: 2px solid red;
+}
+
 div {
     align-content: center;
     border: 2px solid green($color: #000000);
@@ -52,28 +56,68 @@ img {
 
     border-radius: 10px;
     font-family: 'Times New Roman', Times, serif;
-box-shadow: 0px 4px 8px green($color: #000000);
+    box-shadow: 0px 4px 8px green;
+    border: 2px solid green;
 }
-.image{
+
+.image {
     width: 15px;
     height: 15px;
 }
-.para{
+
+.para {
     font-size: 15px;
     color: grey;
 }
-.title{
+
+.title {
     font-size: 14px;
     width: fit-content;
     margin: 0px;
-    
+
 }
-a{
-text-decoration: none;
-color: black;    
+
+a {
+    text-decoration: none;
+    color: black;
 }
-.logo{
+
+.logo {
     width: 40px;
     height: 40px;
 
+}
+
+.filter {
+    border-radius: 5px;
+    padding: 2px 4px;
+    margin: 0px;
+    border: 2px solid rgb(10, 10, 10);
+}
+
+.fit {
+    width: fit-content;
+    height: fit-content;
+}
+
+.fit>ion-text:active {
+    color: red;
+    border-color: red;
+}
+
+.big {
+    font-size: 19px;
+}
+
+.pad {
+    padding: 0px 10px;
+}
+
+ion-text:hover {
+    color: green;
+    border-color: green;
+}
+.selected {
+    color: green;
+    border-color: green;
 }
