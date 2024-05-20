@@ -9,33 +9,21 @@
 
 <ion-content [fullscreen]="true">
   <section>
-    <div>
-
-      <a href="" (click)="sleeper()" >
+      <ion-col (click)="filter('Sleeper')" >
         <img src="https://www.morningstartravels.in/m/assets/icon/sleeper.png" alt="">
-      </a>
-    </div>
-    <div>
-
-<a href="">
+      </ion-col>
+<ion-col (click)="filter('Seater')">
   <img src="https://www.morningstartravels.in/m/assets/icon/seater.png" alt="">
-</a>
-    </div>
-    <div>
-
-<a href=""  >
+</ion-col>
+<ion-col (click)="filter('AC')" >
   <img src="https://www.morningstartravels.in/m/assets/icon/ac.png" alt="">
-</a>
-    </div>
-    <div>
-
-<a href="">
+</ion-col>
+  
+<ion-col (click)="filter('Non-Ac')" >
   <img src="https://www.morningstartravels.in/m/assets/icon/nonAc.png" alt="">
-</a>
-    </div>
-    <div>
-    <a href="">filter</a>
-    </div>
+</ion-col>
+  <ion-col (click)="filter('filter')" >filter</ion-col>
+  
 
   </section>
   <div class="bsr bar-footer bar-positive">
@@ -44,7 +32,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size="12">
-        <ion-list *ngFor="let data of allData">
+        <ion-list *ngFor="let data of tempData">
           <div class="main">
             <ion-row class="arrange">
               <ion-col size="9">
@@ -64,11 +52,8 @@
               </ion-col>
             </ion-row>
           </div>
-
         </ion-list>
-
       </ion-col>
-
     </ion-row>
   </ion-grid>
   <ion-modal [isOpen]="isModalOpen">

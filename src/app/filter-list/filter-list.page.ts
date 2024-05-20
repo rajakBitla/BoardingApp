@@ -8,16 +8,15 @@ import { ApiFactoryService } from '../api-factory.service';
 })
 export class FilterListPage implements OnInit {
 allData:any
+tempData:any
   constructor(
     private apiFactory: ApiFactoryService
   ) { }
   filterBusData() {
     this.apiFactory.FilterDataUrl().subscribe((res) => {
       this.allData=res
+      this.tempData=res
       console.log(res[0]);
-      
-      // console.log(res);
-
     })
   }
   ngOnInit() {
@@ -28,7 +27,14 @@ allData:any
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
-  sleeper(){
+  filter(test:any){
+    this.tempData=[]
+    this.allData.forEach((element:any) => {
+      if(element.bus_type.indexOf(test)>=0){
+        this.tempData.push(element);
+      }
+      
+    });
     
   }
 }
