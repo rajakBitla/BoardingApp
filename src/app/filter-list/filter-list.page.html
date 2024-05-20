@@ -13,10 +13,10 @@
   <ion-grid>
 
     <ion-row class="fit">
-      <ion-text (click)="filter('Sleeper')" class="filter" id="sleeperTag">Sleeper</ion-text>
-      <ion-text (click)="filter('Seater')" class="filter" id="seaterTag" >Seater</ion-text>
-      <ion-text (click)="filter('AC')" class="filter" id="acTag" >AC</ion-text>
-      <ion-text (click)="filter('Non-Ac')" class="filter" id="nonAcTag">Non-Ac</ion-text>
+      <ion-text (click)="filter('Sleeper')" class="filter" id="sleeperTag"><ion-img class="icon" src="https://i.pinimg.com/474x/2c/ba/35/2cba35b487152cfaf21e0327dca97467.jpg" ></ion-img>Sleeper</ion-text>
+      <ion-text (click)="filter('Seater')" class="filter" id="seaterTag" ><ion-img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQsQNB9XdPCNyySLQ0VrAmLfyiFWUL33Gcmw&usqp=CAU"></ion-img>Seater</ion-text>
+      <ion-text (click)="filter('AC')" class="filter" id="acTag" ><ion-img class="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH73nZDvckMvtGvvKdkrhkCv3NidZwW6EbzA&usqp=CAU" ></ion-img>AC</ion-text>
+      <ion-text (click)="filter('Non-Ac')" class="filter" id="nonAcTag"><ion-img class="icon" src="https://cdn-icons-png.flaticon.com/512/512/512967.png" ></ion-img>Non-Ac</ion-text>
       <ion-select placeholder="Filter" [multiple]="true" (ionChange)="changeOption($event)">
         <ion-select-option value="Sleeper">Sleeper</ion-select-option>
         <ion-select-option value="Seater">Seater</ion-select-option>
