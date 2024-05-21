@@ -6,6 +6,7 @@ import { BoardPassengerPage } from './board-passenger/board-passenger.page';
 import { AddPassengerPage } from './add-passenger/add-passenger.page';
 import { FormControlPage } from './form-control/form-control.page';
 import { SearchbusesPage } from './searchbuses/searchbuses.page';
+import { CityPage } from './city/city.page';
 
 const routes: Routes = [
   {
@@ -50,6 +51,11 @@ const routes: Routes = [
     path: 'searchbuses',
     component:SearchbusesPage
     // loadChildren: () => import('./searchbuses/searchbuses.module').then( m => m.SearchbusesPageModule)
+  },
+  {
+    path: 'city',
+    component:CityPage
+    // loadChildren: () => import('./city/city.module').then( m => m.CityPageModule)
   },
 ];
 

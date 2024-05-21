@@ -21,11 +21,11 @@ export class ApiFactoryService {
     );
   }
   filterByOrigin(data: any[], origin: string): any[] {
-    return data.filter((pair) => pair.origin === origin);
+    return data.filter((pair) => pair.origin.name.toLowerCase() === origin.toLowerCase());
   }
 
-  filterByDestination(data: any[], destination: string): any[] {
-    return data.filter((pair) => pair.destination === destination);
+  filterByDestination(data: any[], destination: string,id:any): any[] {
+    return data.filter((pair,ind) => data[ind].origin.id===id && pair.destination.name.toLowerCase() === destination.toLowerCase());
   }
   filterByOriginAndDestination(
     data: any[],

@@ -13,6 +13,7 @@ import { AddPassengerPage } from './add-passenger/add-passenger.page';
 import { FormControlPage } from './form-control/form-control.page';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchbusesPage } from './searchbuses/searchbuses.page';
+import { CityPage } from './city/city.page';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SearchbusesPage } from './searchbuses/searchbuses.page';
     AddPassengerPage,
     FormControlPage,
     SearchbusesPage,
+    CityPage
   ],
   imports: [
     BrowserModule,

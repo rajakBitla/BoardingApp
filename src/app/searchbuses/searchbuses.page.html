@@ -5,27 +5,52 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list>
+  <ion-list no-line>
     <ion-item>
-      <ion-icon name="bus"></ion-icon>
+      <ion-icon slot="end" name="bus"></ion-icon>
       <ion-input
         type="text"
-        [(ngModel)]="origin"
         id="origin-modal"
-        label="Origin"
+        placeholder="From"
+        (click)="moveOrg()"
+        [(ngModel)]="origin"
       ></ion-input>
     </ion-item>
+   <ion-item>
+    <ion-button size="small" color="medium" fill="outline" shape="round" (click)="swipe()">
+      <ion-text slot="icon-only">&#8645;</ion-text>
+    </ion-button>
+   </ion-item>
     <ion-item>
-      <ion-icon name="bus" class="ion-padding"></ion-icon>
+      <ion-icon name="bus" slot="end" class="ion-padding"></ion-icon>
       <ion-input
-        [(ngModel)]="destination"
         type="text"
         id="destination-modal"
-        label="Destination"
+        placeholder="To"
+        (click)="moveDes()"
+        [(ngModel)]="destination"
       ></ion-input>
     </ion-item>
+    <ion-item>
+      <!-- <ion-input type="date" ></ion-input> -->
+      <ion-icon slot="start" name="calendar-outline"></ion-icon>
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+    </ion-item>
+    <ion-button expand="block" color="medium" >Search</ion-button>
   </ion-list>
-
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime
+        id="datetime"
+        [(ngModel)]="date"
+        presentation="date"
+        value="date"
+        (ionChange)="changeDate($event)"
+        [showDefaultButtons]="true" color="rose"
+      ></ion-datetime>
+    </ng-template>
+  </ion-modal>
+<!-- 
   <ion-modal
     #modal
     trigger="origin-modal"
@@ -43,7 +68,7 @@
           animated
         ></ion-searchbar>
         <ion-list>
-          <ion-item *ngFor="let pair of filteredPairs">
+          <ion-item *ngFor="let pair of allData">
             {{ pair.origin.name }} - {{ pair.destination.name }}
           </ion-item>
         </ion-list>
@@ -63,6 +88,9 @@
         <ion-searchbar
           placeholder="Search Destination"
           (click)="modal.setCurrentBreakpoint(0.75)"
+          (ngModelChange)="filterData()"
+          showCancelButton="true"
+          animated
         ></ion-searchbar>
         <ion-list>
           <ion-item *ngFor="let pair of filteredPairs">
@@ -71,5 +99,5 @@
         </ion-list>
       </ion-content>
     </ng-template>
-  </ion-modal>
+  </ion-modal> -->
 </ion-content>
