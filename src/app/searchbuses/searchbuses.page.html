@@ -5,58 +5,71 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-<div>
   <ion-list>
     <ion-item>
       <ion-icon name="bus"></ion-icon>
-      <ion-input type="text" labelPlacement="floating" id="origin-modal"  label="Origin" ></ion-input>
+      <ion-input
+        type="text"
+        [(ngModel)]="origin"
+        id="origin-modal"
+        label="Origin"
+      ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-icon name="bus"></ion-icon>
-      <ion-input type="text" labelPlacement="floating" id="destination-modal"  label="Destination" ></ion-input>
+      <ion-icon name="bus" class="ion-padding"></ion-icon>
+      <ion-input
+        [(ngModel)]="destination"
+        type="text"
+        id="destination-modal"
+        label="Destination"
+      ></ion-input>
     </ion-item>
   </ion-list>
-</div>
-<ion-modal #modal trigger="origin-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
-  <ng-template>
-    <ion-content>
-      <ion-searchbar placeholder="Search Origin" (click)="modal.setCurrentBreakpoint(0.75)"></ion-searchbar>
-      <ion-list *ngFor="let data of allData">
-       <ion-text>{{data.origin.name}}</ion-text>
-      </ion-list>
-    </ion-content>
-  </ng-template>
-</ion-modal>
-<ion-modal #modal trigger="destination-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
-  <ng-template>
-    <ion-content>
-      <ion-searchbar placeholder="Search Destination" (click)="modal.setCurrentBreakpoint(0.75)"></ion-searchbar>
-      <ion-list>
-       
-      </ion-list>
-    </ion-content>
-  </ng-template>
-</ion-modal>
-<!-- 
-  (click)="setOpen(true)"
-  <ion-modal [isOpen]="isModalOpen">
-  <ng-template>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Modal</ion-title>
-        <ion-buttons slot="end">
-          <ion-button (click)="setOpen(false)">Close</ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni illum quidem recusandae ducimus quos
-        reprehenderit. Veniam, molestias quos, dolorum consequuntur nisi deserunt omnis id illo sit cum qui. Eaque,
-        dicta.
-      </p>
-    </ion-content>
-  </ng-template>
-</ion-modal> -->
+
+  <ion-modal
+    #modal
+    trigger="origin-modal"
+    [initialBreakpoint]="0.25"
+    [breakpoints]="[0, 0.25, 0.5, 0.75]"
+  >
+    <ng-template>
+      <ion-content>
+        <ion-searchbar
+          placeholder="Search Origin"
+          [(ngModel)]="origin"
+          (ngModelChange)="filterData()"
+          (click)="modal.setCurrentBreakpoint(0.75)"
+          showCancelButton="true"
+          animated
+        ></ion-searchbar>
+        <ion-list>
+          <ion-item *ngFor="let pair of filteredPairs">
+            {{ pair.origin.name }} - {{ pair.destination.name }}
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <ion-modal
+    #modal
+    trigger="destination-modal"
+    [(ngModel)]="destination"
+    (ngModelChange)="filterData()"
+    [initialBreakpoint]="0.25"
+    [breakpoints]="[0, 0.25, 0.5, 0.75]"
+  >
+    <ng-template>
+      <ion-content>
+        <ion-searchbar
+          placeholder="Search Destination"
+          (click)="modal.setCurrentBreakpoint(0.75)"
+        ></ion-searchbar>
+        <ion-list>
+          <ion-item *ngFor="let pair of filteredPairs">
+            {{ pair.origin.name }} - {{ pair.destination.name }}
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>
-<!-- <ion-icon name="bus"></ion-icon> -->
