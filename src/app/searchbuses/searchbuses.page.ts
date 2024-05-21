@@ -59,4 +59,7 @@ export class SearchbusesPage implements OnInit {
     this.origin=this.destination
     this.destination=temp
   }
+  Search(){
+    this.apiFactory.filterByOriginAndDestination(this.allData,this.origin,this.destination)
+  }
 }
