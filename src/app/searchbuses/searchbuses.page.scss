@@ -1,8 +1,89 @@
-*{
-    margin: 0px;
-    padding: 0px;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-.rose{
-    background-color: transparent;
+
+ion-header {
+    --background: var(--ion-color-primary);
+
+    ion-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 16px;
+
+        ion-title {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+    }
+}
+
+ion-content {
+    background: linear-gradient(green, red);
+    padding: 12px;
+}
+
+.input-containers {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.inputs {
+    display: flex;
+    padding: 10px;
+    background-color: var(--ion-color-light);
+    flex-direction: column;
+}
+
+.inputs ion-item {
+    margin-top: 10px;
+    border: none;
+    padding: 0;
+}
+
+.origin-input,
+.destination-input {
+    width: 100%; 
+}
+
+.switch-button {
+    margin-top: 10px;
+    position: relative;
+    bottom: 80px;
+    z-index: 2;
+    
+}
+
+.date-buttons {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.date-buttons ion-button {
+    margin-left: 4px;
+    flex: none;
+}
+
+ion-icon {
+    font-size: 16px;
+    margin: 0px 2px;
+}
+
+.datesec {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dateicon {
+    align-items: center;
 }

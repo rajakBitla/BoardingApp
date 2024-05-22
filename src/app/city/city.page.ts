@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { ApiFactoryService } from '../api-factory.service';
 import { NavParams } from '@ionic/angular';
-import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+
 import * as _ from 'lodash';
 @Component({
   selector: 'app-city',
@@ -11,56 +9,74 @@ import * as _ from 'lodash';
   styleUrls: ['./city.page.scss'],
 })
 export class CityPage implements OnInit {
-  busRoutes: any
-  serviceData: any
-  destinationPairs: any[] = [];
-  filteredPairs: any[] = [];
+  @ViewChild('myDiv') mydv=ElementRef
+  busRoutes: any;
+  serviceData: any;
   origin: string = '';
-  destination: string = '';
-  id: any
-  uniqueOriginNamesArray: any
-  Ocheck: boolean = true
-  Dcheck: boolean = false
-  constructor(private mdctrl: ModalController,
-    private apiFactory: ApiFactoryService,
-    public params: NavParams,
-    private router: Router,
-    private toastController: ToastController
-  ) { }
+  id: any;
+  uniqueOrigins: any[] = [];
+  filteredDestinations: any[] = [];
+  isOriginSelection: boolean = true;
+
+  constructor(private mdctrl: ModalController,public params: NavParams) {}
+
   ngOnInit() {
     this.serviceData = this.params.get('serviceData');
-    this.busRoutes = this.serviceData
-    this.destinationPairs = this.serviceData
+    this.isOriginSelection = this.params.get('isOriginSelection');
+    this.busRoutes = this.serviceData;
 
+    if (this.isOriginSelection) {
+      this.getUniqueOrigins();
+    } else {
+      const originId = this.params.get('originId');
+      this.getDestinationsForOrigin(originId);
+    }
   }
-  getUniqueData(text: any) {
-    this.serviceData = this.busRoutes.filter((pair: any, ind: any) => {
-      _.uniqBy(this.busRoutes, this.busRoutes[ind].origin.id)
-    })
-  }
-  close() {
-    this.mdctrl.dismiss()
-    if (this.destination.trim().length == 0 && this.Ocheck) {
-      for (let index = 0; index < this.busRoutes.length; index++) {
-        if (this.busRoutes[index].origin.name.toLowerCase() === this.origin.toLowerCase()) {
-          this.id = this.busRoutes[index].origin.id
-          this.Ocheck = false
-          console.log('origin passed');
-          break
-        }
+
+  getUniqueOrigins() {
+    const originsSet = new Set();
+    this.uniqueOrigins = this.busRoutes.filter((route:any) => {
+      if (!originsSet.has(route.origin.id)) {
+        originsSet.add(route.origin.id);
+        return true;
       }
-      this.router.navigate(['/searchbuses', { "org": this.origin, "originId": this.id }])
-      console.log('origin passed 2');
+      return false;
+    }).map((route:any) => route.origin);
+  }
+  
+
+  getDestinationsForOrigin(originId: any) {
+    this.filteredDestinations = this.busRoutes
+      .filter((route: any) => route.origin.id === originId)
+      .map((route: any) => route.destination);
+  }
+
+  filterData(searchText: string ) {
+    
+    if (this.isOriginSelection) {
+      this.uniqueOrigins = this.busRoutes
+        .filter((route: any) => route.origin.name.toLowerCase().includes(searchText!.toLowerCase()))
+        .map((route: any) => route.origin);
+      const originsMap = new Map();
+      this.uniqueOrigins.forEach((origin: any) => {
+        if (!originsMap.has(origin.id)) {
+          originsMap.set(origin.id, origin);
+        }
+      });
+      this.uniqueOrigins = Array.from(originsMap.values());
     } else {
-      this.router.navigate(['/searchbuses', { "des": this.destination }])
+      const originId = this.params.get('originId');
+      this.filteredDestinations = this.busRoutes
+        .filter((route: any) => route.destination.name.toLowerCase().includes(searchText!.toLowerCase()) && route.origin.id === originId)
+        .map((route: any) => route.destination);
     }
   }
 
-  filterData(data: any) {
-    if (this.destination.trim().length === 0) {
-      this.serviceData = this.apiFactory.filterByOrigin(this.busRoutes, data)
-    } else {
-      this.serviceData = this.apiFactory.filterByDestination(this.busRoutes, data, this.id)
-    }
+  selectCity(city: any) {
+    this.mdctrl.dismiss(city);
   }
-}
+
+  close() {
+    this.mdctrl.dismiss();
+  }
+  }

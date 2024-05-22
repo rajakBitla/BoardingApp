@@ -1,21 +1,26 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title slot="end">City</ion-title>
-    <ion-icon slot="start" class="ion-padding" (click)="close()" name="arrow-back-outline" ></ion-icon>
+    <ion-title>Select City</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">X</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-searchbar  animated [(ngModel)]="origin" (ionInput)="filterData($event.detail.value)" ></ion-searchbar>
-  <div *ngIf="Ocheck">
-    <ion-list class="ion-padding" *ngFor="let data of serviceData" >
-      <ion-text >{{data.origin.name}}</ion-text>
+<ion-content>
+  <ion-searchbar animated [(ngModel)]="origin" (ionInput)="filterData($event.detail.value ?? '')"></ion-searchbar>
+  <div *ngIf="isOriginSelection">
+    <ion-list class="ion-padding">
+      <ion-item *ngFor="let data of uniqueOrigins" (click)="selectCity(data)">
+        <ion-text>{{data.name}}</ion-text>
+      </ion-item>
     </ion-list>
   </div>
-  <div *ngIf="Dcheck">
-    <ion-list class="ion-padding" *ngFor="let data of serviceData" >
-      <ion-text >{{data.origin.name}}</ion-text>
+  <div *ngIf="!isOriginSelection">
+    <ion-list class="ion-padding">
+      <ion-item *ngFor="let data of filteredDestinations" (click)="selectCity(data)">
+        <ion-text>{{data.name}}</ion-text>
+      </ion-item>
     </ion-list>
   </div>
- 
 </ion-content>

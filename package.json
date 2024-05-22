@@ -28,8 +28,11 @@
     "@capacitor/status-bar": "6.0.0",
     "@ionic/angular": "^8.0.0",
     "angularx-qrcode": "^17.0.1",
+    "chart.js": "^3.8.0",
+    "date-fns": "^3.6.0",
     "ionicons": "^7.0.0",
     "lodash": "^4.17.21",
+    "ng2-charts": "^3.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"

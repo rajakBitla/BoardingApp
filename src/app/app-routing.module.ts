@@ -57,6 +57,10 @@ const routes: Routes = [
     component:CityPage
     // loadChildren: () => import('./city/city.module').then( m => m.CityPageModule)
   },
+  {
+    path: 'line-chart',
+    loadChildren: () => import('./Charts/line-chart/line-chart.module').then( m => m.LineChartPageModule)
+  },
 ];
 
 @NgModule({
