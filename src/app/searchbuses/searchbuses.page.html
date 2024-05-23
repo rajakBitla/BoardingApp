@@ -11,25 +11,22 @@
     <div class="inputs">
       <div class="origin-input">
         <ion-item>
-          <ion-icon slot="start" name="bus"></ion-icon>
-          <ion-input type="text" id="origin-modal" placeholder="From" (click)="moveOrg()" [(ngModel)]="origin"></ion-input>
+          <ion-icon slot="end" name="bus"></ion-icon>
+          <ion-input type="text" id="origin-modal" placeholder="From" (click)="moveOrg()"
+            [(ngModel)]="origin"></ion-input>
         </ion-item>
       </div>
       <div class="destination-input">
         <ion-item>
-          <ion-icon slot="start" name="bus"></ion-icon>
-          <ion-input type="text" id="destination-modal" placeholder="To" (click)="moveDes()" [(ngModel)]="destination"></ion-input>
+          <ion-icon slot="end" name="bus"></ion-icon>
+          <ion-input type="text" id="destination-modal" placeholder="To" (click)="moveDes()"
+            [(ngModel)]="destination"></ion-input>
         </ion-item>
       </div>
-  
-      <ion-button class="switch-button" fill="clear" (click)="swipe()">
-        <ion-icon name="swap-vertical"></ion-icon>
-      </ion-button>
-  
       <ion-item class="datesec">
         <ion-icon slot="start" name="calendar-outline"></ion-icon>
-        <ion-datetime-button  datetime="datetime"></ion-datetime-button>
-  
+        <ion-datetime-button class="custom-datetime-button" datetime="datetime"></ion-datetime-button>
+
         <div class="date-buttons">
           <ion-button size="small" color="primary" fill="clear" (click)="setToday()">Today</ion-button>
           <ion-button size="small" color="primary" fill="clear" (click)="setTomorrow()">Tomorrow</ion-button>
@@ -40,6 +37,9 @@
       </ion-button>
     </div>
   </div>
+  <ion-button class="switch-button" color="medium" fill="clear" (click)="swipe()">
+    <ion-icon size="large" name="swap-vertical"></ion-icon>
+  </ion-button>
 
   <ion-modal [keepContentsMounted]="true">
     <ng-template>

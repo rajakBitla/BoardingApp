@@ -1,0 +1,57 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">This is the menu content.</ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button class="no-padding"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Dashboard</ion-title>
+      <ion-text>Data as on 23/05/2024 04:50 PM</ion-text>
+
+      <ion-icon slot="end" name="calendar"></ion-icon>
+      <ion-icon slot="end" class="ion-padding" name="notifications"></ion-icon>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-segment color="secondary" [(ngModel)]="selectedSegment" (ionChange)="ChangeContent($event.detail.value)">
+      <ion-segment-button value="business">
+        <ion-label>Business</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="bookings">
+        <ion-label>Bookings</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <div [ngSwitch]="selectedSegment">
+      <ion-grid *ngSwitchCase="'business'">
+        <ion-row>
+          <ion-col>Hello im business content row 1</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Hello im business content row 2</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Hello im business content row 3</ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid *ngSwitchCase="'bookings'" >
+        <ion-row>
+          <ion-col>Hello im booking content row 1</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Hello im booking content row 2</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Hello im booking content row 3</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-content>
+</div>

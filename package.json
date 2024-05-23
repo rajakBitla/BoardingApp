@@ -13,7 +13,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^17.0.2",
+    "@angular/animations": "^17.3.10",
     "@angular/common": "^17.0.2",
     "@angular/compiler": "^17.0.2",
     "@angular/core": "^17.0.2",
@@ -28,11 +28,11 @@
     "@capacitor/status-bar": "6.0.0",
     "@ionic/angular": "^8.0.0",
     "angularx-qrcode": "^17.0.1",
-    "chart.js": "^3.8.0",
+    "chart.js": "^4.4.3",
     "date-fns": "^3.6.0",
     "ionicons": "^7.0.0",
     "lodash": "^4.17.21",
-    "ng2-charts": "^3.1.0",
+    "ng2-charts": "^6.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"

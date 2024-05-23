@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LineChartPageRoutingModule } from './line-chart-routing.module';
+import { TsdashboardPageRoutingModule } from './tsdashboard-routing.module';
 
-import { LineChartPage } from './line-chart.page';
+import { TsdashboardPage } from './tsdashboard.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LineChartPageRoutingModule
+    TsdashboardPageRoutingModule
   ],
-  declarations: [LineChartPage]
+  declarations: [TsdashboardPage]
 })
-export class LineChartPageModule {}
+export class TsdashboardPageModule {}

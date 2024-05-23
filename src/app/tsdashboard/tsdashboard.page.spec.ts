@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { LineChartPage } from './line-chart.page';
+import { TsdashboardPage } from './tsdashboard.page';
 
-describe('LineChartPage', () => {
-  let component: LineChartPage;
-  let fixture: ComponentFixture<LineChartPage>;
+describe('TsdashboardPage', () => {
+  let component: TsdashboardPage;
+  let fixture: ComponentFixture<TsdashboardPage>;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LineChartPage);
+    fixture = TestBed.createComponent(TsdashboardPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

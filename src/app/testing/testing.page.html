@@ -1,0 +1,14 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title>testing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="'bar'"> </canvas>
+  <canvas baseChart [labels]="doughnutChartLabels" [datasets]="doughnutChartDatasets" [options]="doughnutChartOptions" [legend]="true" [type]="'doughnut'"></canvas>
+<div style="display: block;">
+  <canvas baseChart width="400" height="400" [type]="'line'" [data]="lineChartData" [options]="lineChartOptions" [legend]="lineChartLegend"></canvas>
+</div>
+
+</ion-content>
