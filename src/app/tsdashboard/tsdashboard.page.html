@@ -32,25 +32,134 @@
     <div [ngSwitch]="selectedSegment">
       <ion-grid *ngSwitchCase="'business'">
         <ion-row>
-          <ion-col>Hello im business content row 1</ion-col>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+            </ion-card-header>
+          
+            <ion-card-content>
+              Here's a small text description for the card content. Nothing more, nothing less.
+            </ion-card-content>
+          </ion-card>
         </ion-row>
         <ion-row>
-          <ion-col>Hello im business content row 2</ion-col>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+            </ion-card-header>
+          
+            <ion-card-content>
+              Here's a small text description for the card content. Nothing more, nothing less.
+            </ion-card-content>
+          </ion-card>
         </ion-row>
         <ion-row>
-          <ion-col>Hello im business content row 3</ion-col>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+            </ion-card-header>
+          
+            <ion-card-content>
+              Here's a small text description for the card content. Nothing more, nothing less.
+            </ion-card-content>
+          </ion-card>
+        </ion-row>
+        <ion-row>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+            </ion-card-header>
+          
+            <ion-card-content>
+              Here's a small text description for the card content. Nothing more, nothing less.
+            </ion-card-content>
+          </ion-card>
+        </ion-row>
+        <ion-row>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+            </ion-card-header>
+          
+            <ion-card-content>
+              Here's a small text description for the card content. Nothing more, nothing less.
+            </ion-card-content>
+          </ion-card>
+        </ion-row>
+        <ion-row>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+            </ion-card-header>
+          
+            <ion-card-content>
+              Here's a small text description for the card content. Nothing more, nothing less.
+            </ion-card-content>
+          </ion-card>
         </ion-row>
       </ion-grid>
       <ion-grid *ngSwitchCase="'bookings'" >
+        
+          <ion-card>
+            <ion-card-content>
+            <ion-row class="ion-justify-content-between ion-align-items-center">
+              <ion-col size="auto" class="ion-margin-end">
+                <ion-title class="small">Available Balance</ion-title>
+                <ion-text class="price">&#8377; 0.0</ion-text>
+              </ion-col>
+              <ion-col size="auto">
+                <ion-title class="small">Branch Balance</ion-title>
+                <ion-text class="price">&#8377; 7549.21</ion-text>
+              </ion-col>
+            </ion-row>
+            </ion-card-content>
+          </ion-card>
+        
         <ion-row>
-          <ion-col>Hello im booking content row 1</ion-col>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+            </ion-card-header>
+          
+            <ion-card-content>
+              Here's a small text description for the card content. Nothing more, nothing less.
+            </ion-card-content>
+          </ion-card>
         </ion-row>
-        <ion-row>
-          <ion-col>Hello im booking content row 2</ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>Hello im booking content row 3</ion-col>
-        </ion-row>
+      
+          <ion-accordion-group [multiple]="true" [value]="[]">
+            <ion-accordion value="first">
+              <ion-item slot="header" color="light">
+                <ion-row class="ion-justify-content-between ion-align-items-center">
+                <ion-label style="font-weight: bold;" class="Payable">Your Collection</ion-label>  
+                  <ion-col size="" class="ion-margin-start">
+                    <ion-title class="small">Payable Amount</ion-title>
+                    <ion-text class="price">&#8377; 7549.21</ion-text>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+              <div class="ion-padding" slot="content">First Content</div>
+            </ion-accordion>
+            <ion-accordion value="second">
+              <ion-item slot="header" color="light">
+                <ion-label style="font-weight: bold;">Pending API Ticket</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">Second Content</div>
+            </ion-accordion>
+            <ion-accordion value="third">
+              <ion-item slot="header" color="light">
+                <ion-label style="font-weight: bold;" >Pending E Tickets</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">Third Content</div>
+            </ion-accordion>
+          </ion-accordion-group>
       </ion-grid>
     </div>
   </ion-content>
