@@ -37,7 +37,7 @@ export class ApiFactoryService {
   }
   // For ticket simply app dashboard page
   getStatistics(){
-  const Jsbody={"api_key":"67INN354NYJ6TPYDYB7O66VBD60QIBPQ","date":"2024-05-23","is_all_service":true,"order_by":{"occupancy":"1:0","performance":"2:0","revenue":"3:0","schedules_summary_active_cancelled":"4:0","time_blocked_seats_booked_released":"5:0","total_pending_quota_seats":"6:0"},"service_id":"","is_from_middle_tier":true,"locale":"en"};
+  const Jsbody={"api_key":"J70JY3GMF8MRGDJWHC5ICKCIHV46FQOC","date":"2024-05-23","is_all_service":true,"order_by":{"occupancy":"1:0","performance":"2:0","revenue":"3:0","schedules_summary_active_cancelled":"4:0","time_blocked_seats_booked_released":"5:0","total_pending_quota_seats":"6:0"},"service_id":"","is_from_middle_tier":true,"locale":"en"};
 
     return this.http.post<any>('http://jpsb-qa1.ticketsimply.co.in/api/dashboard_fetch.json',Jsbody)
   }

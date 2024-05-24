@@ -14,7 +14,7 @@
         <ion-menu-button class="no-padding"></ion-menu-button>
       </ion-buttons>
       <ion-title>Dashboard</ion-title>
-      <ion-text>Data as on 23/05/2024 04:50 PM</ion-text>
+      <ion-text>Data as on {{allStats[0].last_updated}}</ion-text>
 
       <ion-icon slot="end" name="calendar"></ion-icon>
       <ion-icon slot="end" class="ion-padding" name="notifications"></ion-icon>
@@ -31,84 +31,114 @@
     </ion-segment>
     <div [ngSwitch]="selectedSegment">
       <ion-grid *ngSwitchCase="'business'">
-        <ion-row>
+
           <ion-card>
             <ion-card-header>
-              <ion-card-title>Card Title</ion-card-title>
-              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+              <ion-card-title>Occupancy</ion-card-title>
             </ion-card-header>
-          
             <ion-card-content>
-              Here's a small text description for the card content. Nothing more, nothing less.
+              <ion-row class="custom-row ion-align-items-center" >
+                <ion-col size="4">
+                  <ion-text>{{occupancy.today}}%</ion-text>
+                  <ion-button class="statsButton view">View Details</ion-button>
+                </ion-col>
+                <ion-col size="8">
+                  <canvas baseChart id="bookingChartCanvas" [data]="OccuChartData" [options]="OccuChartOptions" [plugins]="OccuChartPlugins" [legend]="OccuChartLegend"[type]="'bar'"> </canvas>
+                </ion-col>
+               </ion-row>
             </ion-card-content>
           </ion-card>
-        </ion-row>
-        <ion-row>
+      
           <ion-card>
             <ion-card-header>
-              <ion-card-title>Card Title</ion-card-title>
-              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+              <ion-card-title>Booking Trends</ion-card-title>
             </ion-card-header>
-          
             <ion-card-content>
-              Here's a small text description for the card content. Nothing more, nothing less.
+              <ion-row class="custom-row ion-align-items-center" >
+                <ion-col size="4">
+                  <ion-text>{{performance.total_performance.toLocaleString().split(".")[0]+"%"}}</ion-text>
+                  <ion-button class="statsButton view">View Details</ion-button>
+                </ion-col>
+                <ion-col size="8">
+                  <canvas baseChart id="bookingChartCanvas" [data]="BookingChartData" [options]="BookingChartOptions" [plugins]="BookingChartPlugins" [legend]="BookingChartLegend"[type]="'bar'"> </canvas>
+                </ion-col>
+               </ion-row>
             </ion-card-content>
           </ion-card>
-        </ion-row>
-        <ion-row>
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Card Title</ion-card-title>
-              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-            </ion-card-header>
-          
-            <ion-card-content>
-              Here's a small text description for the card content. Nothing more, nothing less.
-            </ion-card-content>
-          </ion-card>
-        </ion-row>
-        <ion-row>
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Card Title</ion-card-title>
-              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-            </ion-card-header>
-          
-            <ion-card-content>
-              Here's a small text description for the card content. Nothing more, nothing less.
-            </ion-card-content>
-          </ion-card>
-        </ion-row>
-        <ion-row>
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Card Title</ion-card-title>
-              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-            </ion-card-header>
-          
-            <ion-card-content>
-              Here's a small text description for the card content. Nothing more, nothing less.
-            </ion-card-content>
-          </ion-card>
-        </ion-row>
-        <ion-row>
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Card Title</ion-card-title>
-              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-            </ion-card-header>
-          
-            <ion-card-content>
-              Here's a small text description for the card content. Nothing more, nothing less.
-            </ion-card-content>
-          </ion-card>
-        </ion-row>
-      </ion-grid>
-      <ion-grid *ngSwitchCase="'bookings'" >
         
           <ion-card>
+            <ion-card-header>
+              <ion-card-title>Net Revenue</ion-card-title>
+            </ion-card-header>
             <ion-card-content>
-            <ion-row class="ion-justify-content-between ion-align-items-center">
+             <ion-row class="custom-row ion-align-items-center" >
+              <ion-col size="4">
+                <ion-text>&#8377;{{revenue.today.toLocaleString().split(",")[0]+"k"}}</ion-text>
+                <ion-button class="statsButton view">View Details</ion-button>
+              </ion-col>
+              <ion-col size="8">
+                <canvas baseChart id="bookingChartCanvas" [data]="revenueChartData" [options]="revenueChartOptions" [plugins]="revChartPlugins" [legend]="revChartLegend"[type]="'bar'"> </canvas>
+              </ion-col>
+             </ion-row>
+            </ion-card-content>
+          </ion-card>
+        
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Trip Summary</ion-card-title>
+              <ion-card-subtitle>(Active/Cancelled)</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-list><ion-item class="seats">
+                  <div>{{active_cancelled.today}}</div>
+                  <div>{{active_cancelled.tomorrow}}</div>
+                  <div>{{active_cancelled.yesterday}}</div>
+                </ion-item></ion-list>
+              <ion-button expand="full" class="statsButton">View Details</ion-button>
+            </ion-card-content>
+          </ion-card>
+        <!-- </ion-row> -->
+        <!-- <ion-row> -->
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Phone Bookings</ion-card-title>
+              <ion-card-subtitle>(Pending/Released)</ion-card-subtitle>
+            </ion-card-header>
+
+            <ion-card-content>
+              <ion-list><ion-item class="seats">
+                  <div>{{booked_released.today}}</div>
+                  <div>{{booked_released.tomorrow}}</div>
+                  <div>{{booked_released.yesterday}}</div>
+                </ion-item></ion-list>
+              <ion-button expand="full" class="statsButton">View Details</ion-button>
+            </ion-card-content>
+          </ion-card>
+        <!-- </ion-row> -->
+        <!-- <ion-row> -->
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Quota Seats</ion-card-title>
+
+            </ion-card-header>
+
+            <ion-card-content>
+              <ion-list><ion-item class="seats">
+                  <div>{{quota_seats.today}}</div>
+                  <div>{{quota_seats.tomorrow}}</div>
+                  <div>{{quota_seats.yesterday}}</div>
+                </ion-item></ion-list>
+              <ion-button expand="full" class="statsButton">View Details</ion-button>
+            </ion-card-content>
+          </ion-card>
+        <!-- </ion-row> -->
+      </ion-grid>
+      <ion-grid *ngSwitchCase="'bookings'">
+
+        <ion-card>
+          <ion-card-content>
+            <!-- ion-justify-content-between -->
+            <ion-row class="custom-row ion-align-items-center">
               <ion-col size="auto" class="ion-margin-end">
                 <ion-title class="small">Available Balance</ion-title>
                 <ion-text class="price">&#8377; 0.0</ion-text>
@@ -118,48 +148,106 @@
                 <ion-text class="price">&#8377; 7549.21</ion-text>
               </ion-col>
             </ion-row>
-            </ion-card-content>
-          </ion-card>
-        
+          </ion-card-content>
+        </ion-card>
+
         <ion-row>
           <ion-card>
             <ion-card-header>
-              <ion-card-title>Card Title</ion-card-title>
-              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+              <ion-card-title>Today's Summary</ion-card-title>
             </ion-card-header>
-          
             <ion-card-content>
-              Here's a small text description for the card content. Nothing more, nothing less.
+              <ion-row class="custom-row ion-align-items-center" >
+                <ion-col size="12">
+                  <canvas baseChart [type]="'pie'" style="width: 200px; height: 200px;" [datasets]="pieChartDatasets" [labels]="pieChartLabels" [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend"></canvas>
+                </ion-col>
+                <!-- <ion-col size="6"> -->
+                  <ion-text>&#8377;{{revenue.today.toLocaleString().split(",")[0]+"k"}}</ion-text>
+                <!-- </ion-col> -->
+               </ion-row>
             </ion-card-content>
           </ion-card>
         </ion-row>
-      
-          <ion-accordion-group [multiple]="true" [value]="[]">
+
+        <!-- <ion-card> -->
+        <ion-accordion-group [multiple]="true" [value]="[]">
+          <ion-card>
             <ion-accordion value="first">
-              <ion-item slot="header" color="light">
-                <ion-row class="ion-justify-content-between ion-align-items-center">
-                <ion-label style="font-weight: bold;" class="Payable">Your Collection</ion-label>  
-                  <ion-col size="" class="ion-margin-start">
-                    <ion-title class="small">Payable Amount</ion-title>
-                    <ion-text class="price">&#8377; 7549.21</ion-text>
-                  </ion-col>
+              <ion-item slot="header" color="">
+                <ion-row class="custom-row ion-align-items-center">
+                  <div>
+                    <ion-label class="" style="font-weight: bold;">Your Collection</ion-label>
+                  </div>
+                  <div class="fit">
+                    <ion-label class="small" style="color: lightgray;">Payable amount</ion-label>
+                    <ion-text style="font-size: 12px;font-weight: bold;">&#8377; 7549.21</ion-text>
+                  </div>
                 </ion-row>
               </ion-item>
-              <div class="ion-padding" slot="content">First Content</div>
+              <div class="ion-padding" slot="content">
+                <ion-row>
+                  <ion-col size="6">
+                    <ion-list>
+                      <ion-item>
+                        <ion-text class="small">Cash <br> <b>&#8377; 0.0</b> </ion-text>
+                      </ion-item>
+                      <ion-item>
+                        <ion-text class="small">Wallet <br> <b>&#8377; 0.0</b> </ion-text>
+                      </ion-item>
+                      <ion-item>
+                        <ion-text class="small">Card <br> <b>&#8377; 0.0</b> </ion-text>
+                      </ion-item>
+                      <ion-item>
+                        <ion-text class="small">Others <br> <b>&#8377; 0.0</b> </ion-text>
+                      </ion-item>
+                    </ion-list>
+                  </ion-col>
+                  <ion-col>
+                    <ion-list>
+                      <ion-item>
+                        <ion-text class="small">BIMA <br> <b>&#8377; 0.0</b> </ion-text>
+                      </ion-item>
+                      <ion-item>
+                        <ion-text class="small">Agent Collection <br> <b>&#8377; 0.0</b> </ion-text>
+                      </ion-item>
+                    </ion-list>
+                  </ion-col>
+                </ion-row>
+              </div>
             </ion-accordion>
+          </ion-card>
+          <ion-card>
             <ion-accordion value="second">
-              <ion-item slot="header" color="light">
-                <ion-label style="font-weight: bold;">Pending API Ticket</ion-label>
+              <ion-item slot="header" color="">
+                <ion-row class="custom-row ion-align-items-center">
+                  <div>
+                    <ion-label style="font-weight: bold;">Pending API Ticket</ion-label>
+                  </div>
+                  <div>
+                    <ion-label style="font-weight: bold; color:aqua;">0</ion-label>
+                  </div>
+                </ion-row>
               </ion-item>
-              <div class="ion-padding" slot="content">Second Content</div>
+              <div class="ion-padding" slot="content">No pending API ticket Bookings</div>
             </ion-accordion>
+          </ion-card>
+          <ion-card>
             <ion-accordion value="third">
-              <ion-item slot="header" color="light">
-                <ion-label style="font-weight: bold;" >Pending E Tickets</ion-label>
+              <ion-item slot="header" color="">
+                <ion-row class="custom-row ion-align-items-center">
+                  <div>
+                    <ion-label style="font-weight: bold;">Pending E Tickets</ion-label>
+                  </div>
+                  <div>
+                    <ion-label style="font-weight: bold; color:aqua;">0</ion-label>
+                  </div>
+                </ion-row>
               </ion-item>
-              <div class="ion-padding" slot="content">Third Content</div>
+              <div class="ion-padding" slot="content">No pending E ticket bookings</div>
             </ion-accordion>
-          </ion-accordion-group>
+          </ion-card>
+        </ion-accordion-group>
+        <!-- </ion-card> -->
       </ion-grid>
     </div>
   </ion-content>

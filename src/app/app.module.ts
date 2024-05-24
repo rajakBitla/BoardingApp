@@ -18,6 +18,7 @@ import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { TsdashboardPage } from './tsdashboard/tsdashboard.page';
 import { BaseChartDirective } from 'ng2-charts';
 import { TestingPage } from './testing/testing.page';
+import { NgSwitchCase,NgSwitch } from '@angular/common';
 
 
 
@@ -32,8 +33,6 @@ import { TestingPage } from './testing/testing.page';
     FormControlPage,
     SearchbusesPage,
     CityPage,
-    TsdashboardPage,
-    
   ],
   imports: [
     BrowserModule,
@@ -45,8 +44,9 @@ import { TestingPage } from './testing/testing.page';
     FormsModule,
     BaseChartDirective,
     TestingPage,
-   
-
+    TsdashboardPage,
+    NgSwitchCase,
+    NgSwitch
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },provideCharts(withDefaultRegisterables())],
   bootstrap: [AppComponent],

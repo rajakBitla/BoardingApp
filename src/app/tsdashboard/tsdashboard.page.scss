@@ -1,7 +1,8 @@
-ion-title{
+ion-title {
     position: relative;
     left: -20px;
 }
+
 // ion-row{
 //     // border: 2px solid black;
 //     box-shadow: 2px 2px 10px rgb(161, 161, 161) inset;
@@ -9,15 +10,60 @@ ion-title{
 //     margin: 10px 0px;
 //     height: 200px;
 // }
-.small{
+.small {
     font-size: 12px;
 }
-.price{
+
+.price {
     font-size: 10px;
     color: aqua;
 }
-.Payable{
-margin-right: 50px;
+
+.Payable {
+    margin-right: 50px;
 }
 
-  
+.custom-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.left-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.right-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.fit {
+    width: fit-content;
+}
+
+.seats>div {
+    margin: 0px 35px;
+}
+.statsButton {
+    --background: rgb(218, 247, 247);
+    --background-hover:rgb(218, 247, 247) ;
+    --background-activated:rgb(218, 247, 247) ;
+    --background-focused: rrgb(218, 247, 247);
+    --color: rgb(58, 239, 239);
+    font-weight: bold;
+    
+  }
+  ion-card-header {
+    padding: 5px; /* Remove padding */
+  }
+  .view{
+    font-size: 10px;
+  }
+//   #bookingChartCanvas {
+//     height: 100px; /* Adjust the height as needed */
+//     width: 100px; /* Ensure canvas takes full width */
+//   }
